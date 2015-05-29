@@ -1,10 +1,8 @@
 package async.draft.webapp;
 
 import java.io.BufferedReader;
-import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
@@ -27,14 +25,16 @@ import org.codehaus.jackson.map.ObjectMapper;
  */
 public class NetrunnerDBAPILoader implements IdentitiesLoader {
 
+
 	public IdentityList retrieveIdentities() {
-
+		
 		IdentityList identities = new IdentityList();
-
+		
 		Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
 				"172.206.0.204", 3128));
 
 		try {
+			
 
 			URL url = new URL("http://netrunnerdb.com/api/cards/");
 
@@ -51,26 +51,29 @@ public class NetrunnerDBAPILoader implements IdentitiesLoader {
 				JsonNode node = cardsIterator.next();
 
 				if (node.get("type").getTextValue().equals("Identity")) {
-					if (node.get("cyclenumber").getIntValue() > 0) {
-						Identity identity = new Identity();
-						identity.setName(node.get("title").getTextValue());
-						if (node.get("side").getTextValue().equals("Runner")) {
-							identity.setSide(Identity.SIDE_RUNNER);
-						} else {
-							identity.setSide(Identity.SIDE_CORP);
-						}
-						identity.setImgsrc(node.get("imagesrc").getTextValue());
-						identities.add(identity);
+					if (node.get("cyclenumber").getIntValue() > 0){
+					Identity identity = new Identity();
+					identity.setName(node.get("title").getTextValue());
+					if (node.get("side").getTextValue().equals("runner")) {
+						identity.setSide(Identity.SIDE_RUNNER);
+					} else {
+						identity.setSide(Identity.SIDE_CORP);
+					}
+					identity.setImgsrc(node.get("imagesrc").getTextValue());
+					identities.add(identity);
 					}
 				}
 			}
 		} catch (JsonProcessingException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
-		} 
+		}
 		
 		return identities;
 
