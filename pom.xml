@@ -43,13 +43,6 @@
 					<source>1.7</source>
 					<target>1.7</target>
 				</configuration>
-				 <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals><goal>copy-dependencies</goal></goals>
-                    </execution>
-                </executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.tomcat.maven</groupId>
