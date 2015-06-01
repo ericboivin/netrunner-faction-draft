@@ -6,6 +6,8 @@ public class Identity {
 	
 	private String name;
 	private String imgsrc;
+	private String faction;
+	
 	private int side;
 	
 	public String getName() {
@@ -25,6 +27,12 @@ public class Identity {
 	}
 	public void setSide(int side){
 		this.side = side;
+	}
+	public String getFaction() {
+		return faction;
+	}
+	public void setFaction(String faction) {
+		this.faction = faction;
 	}
 	
 	public String toString(){

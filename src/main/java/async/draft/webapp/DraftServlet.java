@@ -3,6 +3,7 @@ package async.draft.webapp;
 import java.io.IOException;
 import java.io.PrintWriter;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -12,24 +13,23 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class CCC
  */
-@WebServlet("/CCC")
-public class CCC extends HttpServlet {
+@WebServlet("/identitydraft")
+public class DraftServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public CCC() {
-        super();
-        // TODO Auto-generated constructor stub
+      
+	private IdentityList idList;
+	
+    public void init(){
+    	idList = IdentityManager.getInstance().getAllIds();
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		PrintWriter out = response.getWriter();
-		out.print("Servlet C");
+		request.setAttribute("idList", idList.getAllSideIdentities(Identity.SIDE_CORP));
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+		dispatcher.forward(request, response);
 	}
 
 	/**

@@ -1,12 +1,17 @@
 package async.draft.webapp;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
 import java.net.MalformedURLException;
 import java.net.Proxy;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -21,25 +26,29 @@ import org.codehaus.jackson.map.ObjectMapper;
  * only the identities
  * 
  * @author Eric Boivin
- *
+ * 
  */
 public class NetrunnerDBAPILoader implements IdentitiesLoader {
 
-
 	public IdentityList retrieveIdentities() {
-		
+
 		IdentityList identities = new IdentityList();
-		
-		Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
-				"172.206.0.204", 3128));
 
 		try {
-			
 
 			URL url = new URL("http://netrunnerdb.com/api/cards/");
 
+			//For when I'm at work...
+			/*
+			Proxy proxy = new Proxy(Proxy.Type.HTTP, new InetSocketAddress(
+					"172.206.0.204", 3128));
 			HttpURLConnection uc = (HttpURLConnection) url
 					.openConnection(proxy);
+			*/
+			HttpURLConnection uc = (HttpURLConnection) url
+					.openConnection();
+			
+			
 			uc.connect();
 
 			JsonNode rootNode = new ObjectMapper()
@@ -51,19 +60,30 @@ public class NetrunnerDBAPILoader implements IdentitiesLoader {
 				JsonNode node = cardsIterator.next();
 
 				if (node.get("type").getTextValue().equals("Identity")) {
-					if (node.get("cyclenumber").getIntValue() > 0){
-					Identity identity = new Identity();
-					identity.setName(node.get("title").getTextValue());
-					if (node.get("side").getTextValue().equals("runner")) {
-						identity.setSide(Identity.SIDE_RUNNER);
-					} else {
-						identity.setSide(Identity.SIDE_CORP);
-					}
-					identity.setImgsrc(node.get("imagesrc").getTextValue());
-					identities.add(identity);
+					if (node.get("cyclenumber").getIntValue() > 0) {
+						Identity identity = new Identity();
+						identity.setName(node.get("title").getTextValue());
+						identity.setFaction(node.get("faction").getTextValue());
+						if (node.get("side").getTextValue().equals("runner")) {
+							identity.setSide(Identity.SIDE_RUNNER);
+						} else {
+							identity.setSide(Identity.SIDE_CORP);
+						}
+						identity.setImgsrc(node.get("imagesrc").getTextValue());
+						identities.add(identity);
 					}
 				}
 			}
+			if(identities.size() > 0){
+				ObjectMapper mapper = new ObjectMapper();
+				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
+				URL urlSaveFile = classLoader.getResource("identitiesLocal.json");
+				File file = new File(urlSaveFile.toURI().getPath());
+				System.out.println(urlSaveFile.toURI().getPath());
+				mapper.writeValue(file,identities);
+			}
+			
+	        
 		} catch (JsonProcessingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -73,9 +93,12 @@ public class NetrunnerDBAPILoader implements IdentitiesLoader {
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} catch (URISyntaxException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
-		
-		return identities;
 
+		return identities;
 	}
+
 }

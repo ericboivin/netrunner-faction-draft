@@ -7,7 +7,7 @@ public class IdentityManager {
 	private IdentityList identities;
 	
 	private IdentityManager(){
-		IdentitiesLoader loader = new LocalLoader();
+		IdentitiesLoader loader = new NetrunnerDBAPILoader();
 		identities = loader.retrieveIdentities();
 	}
 	
@@ -15,11 +15,12 @@ public class IdentityManager {
 		return instance;
 	}
 	
-	public static void main(String[] args) {
-		
-		IdentityManager mgr = IdentityManager.getInstance();
-		System.out.println(mgr.identities.getAllSideIdentities(Identity.SIDE_RUNNER));
+	public IdentityList getAllIds(){
+		return identities;
 	}
 	
-	
+	public static void main(String args[]){
+		IdentityManager.getInstance().getAllIds();
+	}
+		
 }

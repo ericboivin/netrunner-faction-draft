@@ -10,6 +10,7 @@ import org.codehaus.jackson.map.ObjectMapper;
 
 public class LocalLoader implements IdentitiesLoader {
 
+	@Override
 	public IdentityList retrieveIdentities() {
 		IdentityList identities = new IdentityList();
 
