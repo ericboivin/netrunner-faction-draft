@@ -7,7 +7,7 @@ public class IdentityManager {
 	private IdentityList identities;
 	
 	private IdentityManager(){
-		IdentitiesLoader loader = new NetrunnerDBAPILoader();
+		IdentitiesLoader loader = new LocalLoader();
 		identities = loader.retrieveIdentities();
 	}
 	
