@@ -1,0 +1,6 @@
+/target/
+/.git
+/.extract
+/.settings
+.classpath
+.project
