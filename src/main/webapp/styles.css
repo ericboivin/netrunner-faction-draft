@@ -1,53 +1,12 @@
-.container {
-  text-align:center;
-  padding-right: 15px;
-  padding-left: 15px;
+.identity
+{
+    width:320px;
+    height:440px;
+    float:left;
 }
-
-.row {
-  margin-bottom: 20px;
-}
-.row .row {
-  margin-top: 10px;
-  margin-bottom: 0;
-}
-[class*="col-"] {
-  padding-top: 15px;
-  padding-bottom: 15px;
-  background-color: #eee;
-  background-color: rgba(86,61,124,.15);
-  border: 1px solid #ddd;
-  border: 1px solid rgba(86,61,124,.2);
-}
-
-.Anarch{
-	background-color:#FFCC00;
-}
-
-.Criminal{
-	background-color:#3366FF;
-}
-
-.Shaper{
-	background-color:#99FF99;
-}
-
-.Haas-Bioroid{
-	background-color:#660066;
-}
-
-.Weyland{
-	background-color:#006600;
-}
-
-.NBN{
-	background-color:#FFFFCC;
-}
-
-.Jinteki{
-	background-color:#CC3300;
-}
-hr {
-  margin-top: 40px;
-  margin-bottom: 40px;
+.identity#wrap
+{
+    width:auto;
+    height:auto;
+    border:none;
 }

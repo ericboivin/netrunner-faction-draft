@@ -11,8 +11,8 @@ import org.codehaus.jackson.map.ObjectMapper;
 public class LocalLoader implements IdentitiesLoader {
 
 	@Override
-	public IdentityList retrieveIdentities() {
-		IdentityList identities = new IdentityList();
+	public IdentityMap retrieveIdentities() {
+		IdentityMap identities = new IdentityMap();
 
 		try {
 			InputStream in = this.getClass().getClassLoader()
@@ -27,9 +27,10 @@ public class LocalLoader implements IdentitiesLoader {
 
 				Identity identity = new Identity();
 				identity.setName(node.get("name").getTextValue());
-				identity.setSide(node.get("side").getIntValue());
-				identity.setImgsrc(node.get("imgsrc").getTextValue());
-				identities.add(identity);
+				identity.setSide(node.get("side").getTextValue());
+				identity.setFaction(node.get("faction").getTextValue());
+				identity.setCode(node.get("code").getTextValue());
+				identities.put(identity.getCode(),identity);
 			}
 
 		} catch (JsonProcessingException e) {

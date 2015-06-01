@@ -30,9 +30,9 @@ import org.codehaus.jackson.map.ObjectMapper;
  */
 public class NetrunnerDBAPILoader implements IdentitiesLoader {
 
-	public IdentityList retrieveIdentities() {
+	public IdentityMap retrieveIdentities() {
 
-		IdentityList identities = new IdentityList();
+		IdentityMap identities = new IdentityMap();
 
 		try {
 
@@ -64,22 +64,18 @@ public class NetrunnerDBAPILoader implements IdentitiesLoader {
 						Identity identity = new Identity();
 						identity.setName(node.get("title").getTextValue());
 						identity.setFaction(node.get("faction").getTextValue());
-						if (node.get("side").getTextValue().equals("runner")) {
-							identity.setSide(Identity.SIDE_RUNNER);
-						} else {
-							identity.setSide(Identity.SIDE_CORP);
-						}
-						identity.setImgsrc(node.get("imagesrc").getTextValue());
-						identities.add(identity);
+						identity.setCode(node.get("code").getTextValue());
+						identity.setSide(node.get("side").getTextValue());
+						identities.put(identity.getCode(),identity);
 					}
 				}
 			}
+			//Save local version
 			if(identities.size() > 0){
 				ObjectMapper mapper = new ObjectMapper();
 				ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
 				URL urlSaveFile = classLoader.getResource("identitiesLocal.json");
 				File file = new File(urlSaveFile.toURI().getPath());
-				System.out.println(urlSaveFile.toURI().getPath());
 				mapper.writeValue(file,identities);
 			}
 			

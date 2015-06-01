@@ -1,14 +1,11 @@
 package async.draft.webapp;
 
 public class Identity {
-	public static final int SIDE_CORP = 1;
-	public static final int SIDE_RUNNER = 2;
 	
 	private String name;
-	private String imgsrc;
+	private String code;
 	private String faction;
-	
-	private int side;
+	private String side; 
 	
 	public String getName() {
 		return name;
@@ -16,16 +13,16 @@ public class Identity {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getImgsrc() {
-		return imgsrc;
+	public String getCode() {
+		return code;
 	}
-	public void setImgsrc(String imgsrc) {
-		this.imgsrc = imgsrc;
+	public void setCode(String code) {
+		this.code = code;
 	}
-	public int getSide(){
+	public String getSide(){
 		return side;
 	}
-	public void setSide(int side){
+	public void setSide(String side){
 		this.side = side;
 	}
 	public String getFaction() {

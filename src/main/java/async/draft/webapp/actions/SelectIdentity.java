@@ -1,7 +1,6 @@
-package async.draft.webapp;
+package async.draft.webapp.actions;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -10,16 +9,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import async.draft.webapp.IdentityMap;
+import async.draft.webapp.IdentityManager;
+
 /**
- * Servlet implementation class CCC
+ * Servlet implementation class SelectIdentity
  */
-@WebServlet("/identitydraft")
-public class DraftServlet extends HttpServlet {
+@WebServlet("/selectIdentity")
+public class SelectIdentity extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-      
+       
 	private IdentityMap idList;
 	
-    public void init(){
+	public void init(){
     	idList = IdentityManager.getInstance().getAllIds();
     }
 
@@ -27,8 +29,9 @@ public class DraftServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setAttribute("idList", idList.getAllSideIdentities("Runner"));
-		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp");
+		String code = request.getParameter("code");
+		request.setAttribute("identity", idList.get(code));
+		RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/confirm.jsp");
 		dispatcher.forward(request, response);
 	}
 

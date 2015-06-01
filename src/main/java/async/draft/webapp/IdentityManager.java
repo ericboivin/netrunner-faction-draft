@@ -4,7 +4,7 @@ public class IdentityManager {
 		
 	private static IdentityManager instance = new IdentityManager();
 	
-	private IdentityList identities;
+	private IdentityMap identities;
 	
 	private IdentityManager(){
 		IdentitiesLoader loader = new LocalLoader();
@@ -15,7 +15,7 @@ public class IdentityManager {
 		return instance;
 	}
 	
-	public IdentityList getAllIds(){
+	public IdentityMap getAllIds(){
 		return identities;
 	}
 	

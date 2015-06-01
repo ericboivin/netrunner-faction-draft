@@ -42,14 +42,11 @@
 			<!--/.nav-collapse -->
 		</div>
 	</div>
-
 	<div class="container">
-		<c:forEach items="${idList}" var="identity">
-			<div class="identity">
-				<a href="selectIdentity?code=<c:out value = "${identity.code}"/>"><img src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/<c:out value = "${identity.code}"/>.png" alt="<c:out value="${identity.name}" />"/></a>
-			</div>
-		</c:forEach>
+		<h3>You have chosen</h3>
+		<span>
+			<img src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/<c:out value = "${identity.code}"/>.png" alt="<c:out value="${identity.name}" />"/>
+		</span>
 	</div>
-
 </body>
 </html>
