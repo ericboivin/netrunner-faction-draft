@@ -1,222 +1,236 @@
-[
-  {
-    "name": "Noise: Hacker Extraordinaire",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/01001.png",
-    "side": 2
-  },
-  {
-    "name": "Gabriel Santiago: Consummate Professional",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/01017.png",
-    "side": 2
-  },
-  {
-    "name": "Kate \"Mac\" McCaffrey: Digital Tinker",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/01033.png",
-    "side": 2
-  },
-  {
-    "name": "Haas-Bioroid: Engineering the Future",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/01054.png",
-    "side": 1
-  },
-  {
-    "name": "Jinteki: Personal Evolution",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/01067.png",
-    "side": 1
-  },
-  {
-    "name": "NBN: Making News",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/01080.png",
-    "side": 1
-  },
-  {
-    "name": "Weyland Consortium: Building a Better World",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/01093.png",
-    "side": 1
-  },
-  {
-    "name": "Whizzard: Master Gamer",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/02001.png",
-    "side": 2
-  },
-  {
-    "name": "Haas-Bioroid: Stronger Together",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/02010.png",
-    "side": 1
-  },
-  {
-    "name": "Jinteki: Replicating Perfection",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/02031.png",
-    "side": 1
-  },
-  {
-    "name": "Chaos Theory: Wu00fcnderkind",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/02046.png",
-    "side": 2
-  },
-  {
-    "name": "Weyland Consortium: Because We Built It",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/02076.png",
-    "side": 1
-  },
-  {
-    "name": "Andromeda: Dispossessed Ristie",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/02083.png",
-    "side": 2
-  },
-  {
-    "name": "NBN: The World is Yours*",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/02114.png",
-    "side": 1
-  },
-  {
-    "name": "Cerebral Imaging: Infinite Frontiers",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/03001.png",
-    "side": 1
-  },
-  {
-    "name": "Custom Biotics: Engineered for Success",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/03002.png",
-    "side": 1
-  },
-  {
-    "name": "NEXT Design: Guarding the Net",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/03003.png",
-    "side": 1
-  },
-  {
-    "name": "Rielle \"Kit\" Peddler: Transhuman",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/03028.png",
-    "side": 2
-  },
-  {
-    "name": "The Professor: Keeper of Knowledge",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/03029.png",
-    "side": 2
-  },
-  {
-    "name": "Exile: Streethawk",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/03030.png",
-    "side": 2
-  },
-  {
-    "name": "Reina Roja: Freedom Fighter",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/04041.png",
-    "side": 2
-  },
-  {
-    "name": "GRNDL: Power Unleashed",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/04097.png",
-    "side": 1
-  },
-  {
-    "name": "Harmony Medtech: Biomedical Pioneer",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/05001.png",
-    "side": 1
-  },
-  {
-    "name": "Nisei Division: The Next Generation",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/05002.png",
-    "side": 1
-  },
-  {
-    "name": "Tennin Institute: The Secrets Within",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/05003.png",
-    "side": 1
-  },
-  {
-    "name": "Iain Stirling: Retired Spook",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/05028.png",
-    "side": 2
-  },
-  {
-    "name": "Ken \"Express\" Tenma: Disappeared Clone",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/05029.png",
-    "side": 2
-  },
-  {
-    "name": "Silhouette: Stealth Operative",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/05030.png",
-    "side": 2
-  },
-  {
-    "name": "Near-Earth Hub: Broadcast Center",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/06005.png",
-    "side": 1
-  },
-  {
-    "name": "Nasir Meidan: Cyber Explorer",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/06017.png",
-    "side": 2
-  },
-  {
-    "name": "The Foundry: Refining the Process",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/06021.png",
-    "side": 1
-  },
-  {
-    "name": "Quetzal: Free Spirit",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/06052.png",
-    "side": 2
-  },
-  {
-    "name": "Blue Sun: Powering the Future",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/06068.png",
-    "side": 1
-  },
-  {
-    "name": "Leela Patel: Trained Pragmatist",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/06095.png",
-    "side": 2
-  },
-  {
-    "name": "Industrial Genomics: Growing Solutions",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/06105.png",
-    "side": 1
-  },
-  {
-    "name": "Argus Security: Protection Guaranteed",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/07001.png",
-    "side": 1
-  },
-  {
-    "name": "Gagarin Deep Space: Expanding the Horizon",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/07002.png",
-    "side": 1
-  },
-  {
-    "name": "Titan Transnational: Investing In Your Future",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/07003.png",
-    "side": 1
-  },
-  {
-    "name": "Edward Kim: Humanity's Hammer",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/07028.png",
-    "side": 2
-  },
-  {
-    "name": "MaxX: Maximum Punk Rock",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/07029.png",
-    "side": 2
-  },
-  {
-    "name": "Valencia Estevez: The Angel of Cayambe",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/07030.png",
-    "side": 2
-  },
-  {
-    "name": "Jinteki Biotech: Life Imagined",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/08012.png",
-    "side": 1
-  },
-  {
-    "name": "Hayley Kaplan: Universal Scholar",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/08025.png",
-    "side": 2
-  },
-  {
-    "name": "Cybernetics Division: Humanity Upgraded",
-    "imgsrc": "/web/bundles/netrunnerdbcards/images/cards/en/08050.png",
-    "side": 1
-  }
-]
+[ {
+  "name" : "Noise: Hacker Extraordinaire",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/01001.png",
+  "faction" : "Anarch",
+  "side" : 1
+}, {
+  "name" : "Gabriel Santiago: Consummate Professional",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/01017.png",
+  "faction" : "Criminal",
+  "side" : 1
+}, {
+  "name" : "Kate \"Mac\" McCaffrey: Digital Tinker",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/01033.png",
+  "faction" : "Shaper",
+  "side" : 1
+}, {
+  "name" : "Haas-Bioroid: Engineering the Future",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/01054.png",
+  "faction" : "Haas-Bioroid",
+  "side" : 1
+}, {
+  "name" : "Jinteki: Personal Evolution",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/01067.png",
+  "faction" : "Jinteki",
+  "side" : 1
+}, {
+  "name" : "NBN: Making News",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/01080.png",
+  "faction" : "NBN",
+  "side" : 1
+}, {
+  "name" : "Weyland Consortium: Building a Better World",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/01093.png",
+  "faction" : "Weyland Consortium",
+  "side" : 1
+}, {
+  "name" : "Whizzard: Master Gamer",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/02001.png",
+  "faction" : "Anarch",
+  "side" : 1
+}, {
+  "name" : "Haas-Bioroid: Stronger Together",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/02010.png",
+  "faction" : "Haas-Bioroid",
+  "side" : 1
+}, {
+  "name" : "Jinteki: Replicating Perfection",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/02031.png",
+  "faction" : "Jinteki",
+  "side" : 1
+}, {
+  "name" : "Chaos Theory: Wünderkind",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/02046.png",
+  "faction" : "Shaper",
+  "side" : 1
+}, {
+  "name" : "Weyland Consortium: Because We Built It",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/02076.png",
+  "faction" : "Weyland Consortium",
+  "side" : 1
+}, {
+  "name" : "Andromeda: Dispossessed Ristie",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/02083.png",
+  "faction" : "Criminal",
+  "side" : 1
+}, {
+  "name" : "NBN: The World is Yours*",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/02114.png",
+  "faction" : "NBN",
+  "side" : 1
+}, {
+  "name" : "Cerebral Imaging: Infinite Frontiers",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/03001.png",
+  "faction" : "Haas-Bioroid",
+  "side" : 1
+}, {
+  "name" : "Custom Biotics: Engineered for Success",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/03002.png",
+  "faction" : "Haas-Bioroid",
+  "side" : 1
+}, {
+  "name" : "NEXT Design: Guarding the Net",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/03003.png",
+  "faction" : "Haas-Bioroid",
+  "side" : 1
+}, {
+  "name" : "Rielle \"Kit\" Peddler: Transhuman",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/03028.png",
+  "faction" : "Shaper",
+  "side" : 1
+}, {
+  "name" : "The Professor: Keeper of Knowledge",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/03029.png",
+  "faction" : "Shaper",
+  "side" : 1
+}, {
+  "name" : "Exile: Streethawk",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/03030.png",
+  "faction" : "Shaper",
+  "side" : 1
+}, {
+  "name" : "Reina Roja: Freedom Fighter",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/04041.png",
+  "faction" : "Anarch",
+  "side" : 1
+}, {
+  "name" : "GRNDL: Power Unleashed",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/04097.png",
+  "faction" : "Weyland Consortium",
+  "side" : 1
+}, {
+  "name" : "Harmony Medtech: Biomedical Pioneer",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/05001.png",
+  "faction" : "Jinteki",
+  "side" : 1
+}, {
+  "name" : "Nisei Division: The Next Generation",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/05002.png",
+  "faction" : "Jinteki",
+  "side" : 1
+}, {
+  "name" : "Tennin Institute: The Secrets Within",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/05003.png",
+  "faction" : "Jinteki",
+  "side" : 1
+}, {
+  "name" : "Iain Stirling: Retired Spook",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/05028.png",
+  "faction" : "Criminal",
+  "side" : 1
+}, {
+  "name" : "Ken \"Express\" Tenma: Disappeared Clone",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/05029.png",
+  "faction" : "Criminal",
+  "side" : 1
+}, {
+  "name" : "Silhouette: Stealth Operative",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/05030.png",
+  "faction" : "Criminal",
+  "side" : 1
+}, {
+  "name" : "Near-Earth Hub: Broadcast Center",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/06005.png",
+  "faction" : "NBN",
+  "side" : 1
+}, {
+  "name" : "Nasir Meidan: Cyber Explorer",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/06017.png",
+  "faction" : "Shaper",
+  "side" : 1
+}, {
+  "name" : "The Foundry: Refining the Process",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/06021.png",
+  "faction" : "Haas-Bioroid",
+  "side" : 1
+}, {
+  "name" : "Quetzal: Free Spirit",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/06052.png",
+  "faction" : "Anarch",
+  "side" : 1
+}, {
+  "name" : "Blue Sun: Powering the Future",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/06068.png",
+  "faction" : "Weyland Consortium",
+  "side" : 1
+}, {
+  "name" : "Leela Patel: Trained Pragmatist",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/06095.png",
+  "faction" : "Criminal",
+  "side" : 1
+}, {
+  "name" : "Industrial Genomics: Growing Solutions",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/06105.png",
+  "faction" : "Jinteki",
+  "side" : 1
+}, {
+  "name" : "Argus Security: Protection Guaranteed",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/07001.png",
+  "faction" : "Weyland Consortium",
+  "side" : 1
+}, {
+  "name" : "Gagarin Deep Space: Expanding the Horizon",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/07002.png",
+  "faction" : "Weyland Consortium",
+  "side" : 1
+}, {
+  "name" : "Titan Transnational: Investing In Your Future",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/07003.png",
+  "faction" : "Weyland Consortium",
+  "side" : 1
+}, {
+  "name" : "Edward Kim: Humanity's Hammer",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/07028.png",
+  "faction" : "Anarch",
+  "side" : 1
+}, {
+  "name" : "MaxX: Maximum Punk Rock",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/07029.png",
+  "faction" : "Anarch",
+  "side" : 1
+}, {
+  "name" : "Valencia Estevez: The Angel of Cayambe",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/07030.png",
+  "faction" : "Anarch",
+  "side" : 1
+}, {
+  "name" : "Jinteki Biotech: Life Imagined",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/08012.png",
+  "faction" : "Jinteki",
+  "side" : 1
+}, {
+  "name" : "Hayley Kaplan: Universal Scholar",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/08025.png",
+  "faction" : "Shaper",
+  "side" : 1
+}, {
+  "name" : "Cybernetics Division: Humanity Upgraded",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/08050.png",
+  "faction" : "Haas-Bioroid",
+  "side" : 1
+}, {
+  "name" : "Haarpsichord Studios",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/08092.png",
+  "faction" : "NBN",
+  "side" : 1
+}, {
+  "name" : "Laramy Fisk: Savvy Investor",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/08104.png",
+  "faction" : "Criminal",
+  "side" : 1
+}, {
+  "name" : "Chronos Protocol: Selective Mind-mapping",
+  "imgsrc" : "/web/bundles/netrunnerdbcards/images/cards/en/08111.png",
+  "faction" : "Jinteki",
+  "side" : 1
+} ]
