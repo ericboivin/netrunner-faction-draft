@@ -32,14 +32,6 @@
 				</button>
 				<a class="navbar-brand" href="">Netrunner identity draft</a>
 			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="liste?tri=extension">Extension</a></li>
-					<li><a href="liste?tri=faction">Faction</a></li>
-					<li><a href="liste?tri=nom">Nom</a></li>
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
 		</div>
 	</div>
 
@@ -50,6 +42,10 @@
 			</div>
 		</c:forEach>
 	</div>
-
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted"><a href="createdraft">Host a new draft</a></p>
+		</div>
+	</footer>
 </body>
 </html>
