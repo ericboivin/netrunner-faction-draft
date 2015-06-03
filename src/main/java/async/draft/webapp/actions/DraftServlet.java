@@ -37,26 +37,32 @@ public class DraftServlet extends HttpServlet {
 				&& !request.getParameter("token").isEmpty()) {
 			DraftPick pick = DraftManager.getInstance().getPick(
 					request.getParameter("token"));
-			if (pick.getPick() == null){
-				request.getSession().setAttribute("token",
-						request.getParameter("token"));
-				request.setAttribute("pick", pick);
-				request.setAttribute(
-						"idList",
-						DraftManager.getInstance().filterTaken(pick.getDraftCode(),
-								idList.getAllSideIdentities(pick.getSide())));
-			}else{
-				request.setAttribute("message", "Sorry, you've already made your pick");
-				request.setAttribute("draft", DraftManager.getInstance().getDraft(pick.getDraftCode()));
+			if (pick == null){
 				RequestDispatcher dispatcher = getServletContext()
-						.getRequestDispatcher("/showdraft.jsp");
+						.getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
+			}else {
+				if (pick.getPick() == null){
+					request.getSession().setAttribute("token",
+							request.getParameter("token"));
+					request.setAttribute("pick", pick);
+					request.setAttribute(
+							"idList",
+							DraftManager.getInstance().filterTaken(pick.getDraftCode(),
+									idList.getAllSideIdentities(pick.getSide())));
+				}else{
+					request.setAttribute("message", "Sorry, you've already made your pick");
+					request.setAttribute("draft", DraftManager.getInstance().getDraft(pick.getDraftCode()));
+					RequestDispatcher dispatcher = getServletContext()
+							.getRequestDispatcher("/showdraft.jsp");
+					dispatcher.forward(request, response);
+				}
 			}
 		} else {
 			request.setAttribute("idList", idList.getAllSideIdentities("Corp"));
 		}
 		RequestDispatcher dispatcher = getServletContext()
-				.getRequestDispatcher("/index.jsp");
+				.getRequestDispatcher("/draft.jsp");
 		dispatcher.forward(request, response);
 	}
 
