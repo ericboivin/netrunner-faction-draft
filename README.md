@@ -1,5 +1,5 @@
-# netrunner-faction-draft
-Web app allowing asynchronous faction drafting for Netrunner
+# Android Netrunner Identity Draft Application
+Web app allowing asynchronous identity drafting for Netrunner
 
 
 ## Installation
