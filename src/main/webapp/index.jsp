@@ -36,11 +36,21 @@
 	</div>
 
 	<div class="container">
+		<h2>${pick.playerName}, your turn to do your pick</h2>
+		<ul class="img-list">
 		<c:forEach items="${idList}" var="identity">
-			<div class="identity">
-				<a href="selectIdentity?code=<c:out value = "${identity.code}"/>"><img src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/<c:out value = "${identity.code}"/>.png" alt="<c:out value="${identity.name}" />"/></a>
-			</div>
+			<li>
+				<a href="selectIdentity?code=<c:out value = "${identity.code}"/>" <c:if test="${identity.takenBy != null}">class="not-active"</c:if>>
+					<img class="<c:if test="${identity.takenBy != null}">fade</c:if>" src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/<c:out value = "${identity.code}"/>.png" alt="<c:out value="${identity.name}" />"/>
+				</a>
+				<c:if test="${identity.takenBy != null}">
+					<span class="text-content">
+						Taken by ${identity.takenBy}
+					</span>
+				</c:if>
+			</li>
 		</c:forEach>
+		</ul>
 	</div>
 	<footer class="footer">
 		<div class="container">

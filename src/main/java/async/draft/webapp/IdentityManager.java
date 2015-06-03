@@ -22,5 +22,9 @@ public class IdentityManager {
 	public static void main(String args[]){
 		IdentityManager.getInstance().getAllIds();
 	}
+	
+	public Identity getIdentity(String code){
+		return identities.get(code);
+	}
 		
 }

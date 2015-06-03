@@ -14,7 +14,7 @@
 
 <!-- Bootstrap core CSS -->
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+<link href="bootstrap/css/docs.min.css" rel="stylesheet">
 <!-- Custom styles for this template -->
 <link href="styles.css" rel="stylesheet">
 </head>
@@ -32,21 +32,36 @@
 				</button>
 				<a class="navbar-brand" href="">Netrunner identity draft</a>
 			</div>
-			<div class="collapse navbar-collapse">
-				<ul class="nav navbar-nav">
-					<li><a href="liste?tri=extension">Extension</a></li>
-					<li><a href="liste?tri=faction">Faction</a></li>
-					<li><a href="liste?tri=nom">Nom</a></li>
-				</ul>
-			</div>
-			<!--/.nav-collapse -->
 		</div>
 	</div>
 	<div class="container">
-		<h3>You have chosen</h3>
-		<span>
-			<img src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/<c:out value = "${identity.code}"/>.png" alt="<c:out value="${identity.name}" />"/>
-		</span>
+		<div class="row">
+			<div class="col-md-4">
+				<img
+					src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/${identity.code}.png"
+					alt="${identity.name}" />
+			</div>
+			<div class="col-md-8">
+				<h3>You have chosen ${identity.name}</h3>
+				<div class="bs-glyphicons">
+						<a
+							href="selectIdentity?confirm=ok&code=<c:out value = "${identity.code}"/>"
+							class="btn btn-info" role="button"><span
+							class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span
+							class="glyphicon-class">Confirm</span></a>
+							<a
+							href="javascript:goBack()"
+							class="btn btn-info" role="button"><span
+							class="glyphicon glyphicon-remove" aria-hidden="true"></span> <span
+							class="glyphicon-class">Cancel</span></a>
+				</div>
+			</div>
+		</div>
 	</div>
 </body>
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 </html>

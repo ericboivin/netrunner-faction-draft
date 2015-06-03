@@ -6,6 +6,7 @@ public class Identity {
 	private String code;
 	private String faction;
 	private String side; 
+	private String takenBy;
 	
 	public String getName() {
 		return name;
@@ -31,7 +32,12 @@ public class Identity {
 	public void setFaction(String faction) {
 		this.faction = faction;
 	}
-	
+	public String getTakenBy() {
+		return takenBy;
+	}
+	public void setTakenBy(String takenBy) {
+		this.takenBy = takenBy;
+	}
 	public String toString(){
 		return name;
 	}

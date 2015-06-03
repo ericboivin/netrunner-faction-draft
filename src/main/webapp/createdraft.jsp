@@ -24,15 +24,9 @@
 
 <body>
 
-	<div class="navbar navbar-inverse" role="navigation">
+	<div class="navbar navbar-inverse">
 		<div class="container">
 			<div class="navbar-header">
-				<button type="button" class="navbar-toggle" data-toggle="collapse"
-					data-target=".navbar-collapse">
-					<span class="sr-only">Toggle navigation</span> <span
-						class="icon-bar"></span> <span class="icon-bar"></span> <span
-						class="icon-bar"></span>
-				</button>
 				<a class="navbar-brand" href="">Netrunner identity draft</a>
 			</div>
 		</div>
@@ -44,8 +38,9 @@
 				name and emails of all players</label> <br />
 			<form method="POST" action="createdraft">
 				<button type="button" id="add" class="btn btn-default addButton">
-					<i class="fa fa-plus"></i>
-				</button>
+					<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+				</button> 
+				<label class="control-label text-danger">${error}</label>
 				<br /> <br />
 				<div id="items">
 					<div>
@@ -68,7 +63,7 @@
 								//Append a new row of code to the "#items" div
 								$("#items").append(
 									"<div>"+ ($('#items').find(':visible[name="name[]"]').length + 1)
-									+ '. <input type="text" name="name[]" required placeholder="Name">&nbsp;<input type="email" name="email[]" placeholder="Email"><button type="button" id="add" class="btn btn-default delete"><i class="fa fa-minus"></i></button></div>');
+									+ '. <input type="text" name="name[]" required placeholder="Name">&nbsp;<input type="email" name="email[]" placeholder="Email"><button type="button" id="delete" class="btn btn-default delete"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button></div>');
 							});
 
 							$("body").on("click", ".delete", function(e) {
