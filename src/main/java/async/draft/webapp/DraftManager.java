@@ -30,7 +30,7 @@ public class DraftManager {
 	public Draft getDraft(String code) {
 		return drafts.get(code);
 	}
-
+	
 	public void getAllDrafts() {
 		ApplicationContext context = new ClassPathXmlApplicationContext(
 				"Spring-config.xml");
@@ -92,6 +92,13 @@ public class DraftManager {
 		draft.setPicks(picks);
 
 		callNextPlayer(draft);
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"Spring-config.xml");
+
+		IDraftDAO draftDAO = (IDraftDAO) context.getBean("draftDAO");
+
+		draftDAO.create(draft);
 		
 		return draft;
 	}
