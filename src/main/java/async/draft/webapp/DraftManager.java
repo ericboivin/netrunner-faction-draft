@@ -1,5 +1,6 @@
 package async.draft.webapp;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
@@ -54,27 +55,31 @@ public class DraftManager {
 		draft.setPlayers(players);
 		draft.setCode(generateRandomDraftName());
 		
-		dao.create(draft);
+		//dao.create(draft);
+		List<DraftPick> picks = new ArrayList<DraftPick>();
 		
 		for (int i=0;i<players.size();i++){
 			DraftPick pick = new DraftPick();
-			pick.setDraftCode(draft.getCode());
 			pick.setPlayerName(players.get(i).getName());
 			pick.setSide("Corp");
 			pick.setToken(generateRandomToken());
 			pick.setNumber(i);
-			dao.saveNewPick(pick);
+			picks.add(pick);
+			//dao.saveNewPick(pick);
 			
 			DraftPick pick2 = new DraftPick();
-			pick2.setDraftCode(draft.getCode());
 			pick2.setPlayerName(players.get(i).getName());
 			pick2.setSide("Runner");
 			pick2.setToken(generateRandomToken());
 			//Snake draft: first corp pick = last runner pick
 			pick2.setNumber(1000-i);
-			dao.saveNewPick(pick2);
+			picks.add(pick2);
+			//dao.saveNewPick(pick2);
 		}
-		callNextPlayer(draft);
+		draft.setPicks(picks);
+		//callNextPlayer(draft);
+		
+		dao.create(draft);
 		
 		return draft;
 	}
@@ -155,3 +160,4 @@ public class DraftManager {
 	}
 
 }
+

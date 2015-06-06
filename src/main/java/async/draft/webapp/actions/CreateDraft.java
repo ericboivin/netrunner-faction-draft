@@ -13,6 +13,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.map.ObjectWriter;
+
 import async.draft.webapp.Draft;
 import async.draft.webapp.DraftManager;
 import async.draft.webapp.Player;
@@ -75,6 +78,7 @@ public class CreateDraft extends HttpServlet {
 
 		if (error == null){
 			Draft draft = DraftManager.getInstance().createDraft(players);
+			
 			request.setAttribute("message", "Draft created");
 			request.setAttribute("draft", draft); 
 			RequestDispatcher dispatcher = getServletContext()

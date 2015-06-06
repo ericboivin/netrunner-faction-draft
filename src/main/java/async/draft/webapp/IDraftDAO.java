@@ -9,4 +9,6 @@ public interface IDraftDAO
 	public DraftPick getPickByToken(String token);
 	public void saveNewPick(DraftPick pick);
 	public List<DraftPick> getPicksForDraft(String draftCode);
+	public void saveDraft(Draft draft);
+	public Draft getDraft(String code);
 }
