@@ -28,7 +28,7 @@ public class DraftManager {
 	}
 
 	public Draft getDraft(String code) {
-		return dao.getDraftByCode(code);
+		return dao.getDraft(code);
 	}
 	
 	public DraftPick getPick(String token){
