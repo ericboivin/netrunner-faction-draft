@@ -7,3 +7,13 @@ This application has been built to run on Heroku at netrunner-faction-draft.hero
 * DATABASE_URL
 * SENDGRID_USERNAME
 * SENDGRID_PASSWORD
+
+The database schema is as follows:
+```
+CREATE TABLE draftjson
+(
+  code text NOT NULL,
+  json json,
+  CONSTRAINT pk_draftjson PRIMARY KEY (code)
+)
+```
