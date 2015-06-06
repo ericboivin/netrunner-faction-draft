@@ -6,6 +6,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 public class DraftManager {
 
 	private static DraftManager instance = new DraftManager();
@@ -13,7 +16,10 @@ public class DraftManager {
 	private IDraftDAO dao;
 
 	private DraftManager() {
-		dao = new PostgreDraftsDAO();
+		ApplicationContext context = new ClassPathXmlApplicationContext(
+				"Spring-config.xml");
+
+		dao = (IDraftDAO) context.getBean("draftDAO");
 	}
 
 	public static DraftManager getInstance() {
@@ -23,8 +29,7 @@ public class DraftManager {
 	public Draft getDraft(String code) {
 		return dao.getDraftByCode(code);
 	}
-
-
+	
 	public DraftPick getPick(String token){
 		return dao.getPickByToken(token);
 	}
