@@ -176,7 +176,7 @@ public class PostgreDraftsDAO implements IDraftDAO
 	}
 	
 	public List<DraftPick> getPicksForDraft(String draftCode){
-		String sql = "SELECT * FROM pick WHERE code = ?";
+		String sql = "SELECT * FROM pick WHERE draftcode = ?";
 		 
 		Connection conn = null;
  
