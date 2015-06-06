@@ -79,7 +79,7 @@ public class DraftManager {
 		draft.setPicks(picks);
 		//callNextPlayer(draft);
 		
-		dao.create(draft);
+		dao.saveDraft(draft);
 		
 		return draft;
 	}
