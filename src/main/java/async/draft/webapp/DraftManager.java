@@ -1,22 +1,15 @@
 package async.draft.webapp;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Random;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-
 public class DraftManager {
 
 	private static DraftManager instance = new DraftManager();
 
-	private Map<String, Draft> drafts = new HashMap<String, Draft>();
-	private Map<String, DraftPick> picks = new HashMap<String, DraftPick>();
-	
 	private IDraftDAO dao;
 
 	private DraftManager() {
@@ -28,25 +21,16 @@ public class DraftManager {
 	}
 
 	public Draft getDraft(String code) {
-		return drafts.get(code);
+		return dao.getDraftByCode(code);
 	}
 
-	public void getAllDrafts() {
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				"Spring-config.xml");
-
-		IDraftDAO draftDAO = (IDraftDAO) context.getBean("draftDAO");
-
-		Draft draft = draftDAO.getDraftByID(1);
-		System.out.println(draft.getCode());
-	}
 
 	public DraftPick getPick(String token){
-		return picks.get(token);
+		return dao.getPickByToken(token);
 	}
 	
 	public void savePick(DraftPick pick){
-		Draft draft = drafts.get(pick.getDraftCode());
+		Draft draft = dao.getDraftByCode(pick.getDraftCode());
 		for (int i=0;i<draft.getPlayers().size();i++){
 			if (pick.getPlayerName().equals(draft.getPlayers().get(i).getName())){
 				if (pick.getSide().equals("Corp")){
@@ -64,10 +48,8 @@ public class DraftManager {
 		Collections.shuffle(players, new Random(seed));
 		draft.setPlayers(players);
 		draft.setCode(generateRandomDraftName());
-
-		drafts.put(draft.getCode(), draft);
 		
-		List<DraftPick> picks = new ArrayList<DraftPick>();
+		dao.create(draft);
 		
 		for (int i=0;i<players.size();i++){
 			DraftPick pick = new DraftPick();
@@ -76,8 +58,7 @@ public class DraftManager {
 			pick.setSide("Corp");
 			pick.setToken(generateRandomToken());
 			pick.setNumber(i);
-			picks.add(pick);
-			this.picks.put(pick.getToken(),pick);
+			dao.saveNewPick(pick);
 			
 			DraftPick pick2 = new DraftPick();
 			pick2.setDraftCode(draft.getCode());
@@ -86,18 +67,15 @@ public class DraftManager {
 			pick2.setToken(generateRandomToken());
 			//Snake draft: first corp pick = last runner pick
 			pick2.setNumber(1000-i);
-			picks.add(pick2);
-			this.picks.put(pick2.getToken(),pick2);
+			dao.saveNewPick(pick2);
 		}
-		draft.setPicks(picks);
-
 		callNextPlayer(draft);
 		
 		return draft;
 	}
 
 	public void callNextPlayer(Draft draft) {
-		List<DraftPick> picks = draft.getPicks();
+		List<DraftPick> picks = dao.getPicksForDraft(draft.getCode());
 		
 		if (picks != null){
 			Collections.sort(picks);
@@ -146,8 +124,7 @@ public class DraftManager {
 
 	public List<Identity> filterTaken(String draftCode, List<Identity> allSideIdentities) {
 		Map<String, String> takenIds = new HashMap<String, String>();
-		Draft draft = drafts.get(draftCode);
-		List<DraftPick> picks = draft.getPicks();
+		List<DraftPick> picks = dao.getPicksForDraft(draftCode);
 		for (int i=0;i<picks.size();i++){
 			if (picks.get(i).getPick() != null){
 				takenIds.put(picks.get(i).getPick(), picks.get(i).getPlayerName());
@@ -163,8 +140,7 @@ public class DraftManager {
 	}
 	
 	public boolean isTaken(String draftCode, String idCode){
-		Draft draft = drafts.get(draftCode);
-		List<DraftPick> picks = draft.getPicks();
+		List<DraftPick> picks = dao.getPicksForDraft(draftCode);
 		for(int i=0;i<picks.size();i++){
 			if (picks.get(i).getPick() != null && picks.get(i).getPick().equals(idCode)){
 				return true;
