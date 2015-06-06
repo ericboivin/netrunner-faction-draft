@@ -220,7 +220,7 @@ public class PostgreDraftsDAO implements IDraftDAO
 	
 	public void saveDraft(Draft draft){
 		String sql = "INSERT INTO draftjson " +
-				"(code,json) VALUES (?,?)";
+				"(code,json) VALUES (?,CAST(? AS json))";
 		Connection conn = null;
 
 		try {
