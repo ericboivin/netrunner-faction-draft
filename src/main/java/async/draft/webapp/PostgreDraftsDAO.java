@@ -15,6 +15,7 @@ import org.codehaus.jackson.JsonParseException;
 import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
+import org.postgresql.util.PGobject;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
  
@@ -226,10 +227,14 @@ public class PostgreDraftsDAO implements IDraftDAO
 			ObjectWriter ow = new ObjectMapper().writer();
 			String json = ow.writeValueAsString(draft);
 			
+			PGobject jsonObject = new PGobject();
+			jsonObject.setType("json");
+			jsonObject.setValue(json);
+			
 			conn = dataSource.getConnection();
 			PreparedStatement ps = conn.prepareStatement(sql);
 			ps.setString(1, draft.getCode());
-			ps.setString(2, json);
+			ps.setObject(2, jsonObject);
 			ps.executeUpdate();
 			ps.close();
  
