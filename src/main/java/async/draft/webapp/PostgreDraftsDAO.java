@@ -253,8 +253,8 @@ public class PostgreDraftsDAO implements IDraftDAO
 	}
 	
 	public void updateDraft(Draft draft){
-		String sql = "UPDATE draftjson " +
-				"(json) VALUES (CAST(? AS json)) WHERE code = ?";
+		String sql = "UPDATE draftjson SET json=CAST(? AS json)" +
+				" WHERE code = ?";
 		Connection conn = null;
 
 		try {
