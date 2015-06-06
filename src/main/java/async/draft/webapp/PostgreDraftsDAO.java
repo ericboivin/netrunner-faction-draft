@@ -218,7 +218,7 @@ public class PostgreDraftsDAO implements IDraftDAO
 	}
 	
 	public void saveDraft(Draft draft){
-		String sql = "INSERT INTO draftJson " +
+		String sql = "INSERT INTO draftjson " +
 				"(code,json) VALUES (?,?)";
 		Connection conn = null;
 
@@ -252,7 +252,7 @@ public class PostgreDraftsDAO implements IDraftDAO
 	}
 	
 	public Draft getDraft(String code){
-		String sql = "SELECT * FROM draftJson WHERE code = ?";
+		String sql = "SELECT * FROM draftjson WHERE code = ?";
 		 
 		Connection conn = null;
  
