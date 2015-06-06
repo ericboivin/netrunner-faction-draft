@@ -252,6 +252,44 @@ public class PostgreDraftsDAO implements IDraftDAO
 		}
 	}
 	
+	public void updateDraft(Draft draft){
+		String sql = "UPDATE draftjson " +
+				"(json) VALUES (CAST(? AS json)) WHERE code = ?";
+		Connection conn = null;
+
+		try {
+			ObjectWriter ow = new ObjectMapper().writer();
+			String json = ow.writeValueAsString(draft);
+			
+			PGobject jsonObject = new PGobject();
+			jsonObject.setType("json");
+			jsonObject.setValue(json);
+			
+			conn = dataSource.getConnection();
+			PreparedStatement ps = conn.prepareStatement(sql);
+			ps.setObject(1, jsonObject);
+			ps.setString(2, draft.getCode());
+			ps.executeUpdate();
+			ps.close();
+ 
+		} catch (SQLException e) {
+			throw new RuntimeException(e);
+ 
+		} catch (JsonGenerationException e) {
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		} finally {
+			if (conn != null) {
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+			}
+		}
+	}
+	
 	public Draft getDraft(String code){
 		String sql = "SELECT * FROM draftjson WHERE code = ?";
 		 

@@ -51,7 +51,7 @@ public class DraftManager {
 				}
 			}
 		}
-		dao.saveDraft(draft);
+		dao.updateDraft(draft);
 		callNextPlayer(draft);
 	}
 	
