@@ -32,6 +32,7 @@
     <property name="caches">
       <set>
         <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="draft" />
+        <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="pick" />
       </set>
     </property>
   </bean>
