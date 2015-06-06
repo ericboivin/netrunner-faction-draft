@@ -149,7 +149,7 @@ public class PostgreDraftsDAO implements IDraftDAO
 	
 	public void saveNewPick(DraftPick pick){
 		String sql = "INSERT INTO pick " +
-				"(draftcode,playername,side,token,number) VALUES (?,?,?,?,?)";
+				"(draftcode,playername,side,token,picknumber) VALUES (?,?,?,?,?)";
 		Connection conn = null;
  
 		try {
