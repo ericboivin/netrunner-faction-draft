@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import async.draft.webapp.Draft;
 import async.draft.webapp.DraftManager;
 import async.draft.webapp.DraftPick;
 import async.draft.webapp.IdentityManager;
@@ -34,32 +35,36 @@ public class DraftServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 		if (request.getParameter("token") != null
-				&& !request.getParameter("token").isEmpty()) {
+				&& !request.getParameter("token").isEmpty() && request.getParameter("draft") != null
+						&& !request.getParameter("draft").isEmpty()) {
+			Draft draft = DraftManager.getInstance().getDraft(request.getParameter("draft"));
 			DraftPick pick = DraftManager.getInstance().getPick(
-					request.getParameter("token"));
+					draft, request.getParameter("token"));
 			if (pick == null){
 				RequestDispatcher dispatcher = getServletContext()
 						.getRequestDispatcher("/index.jsp");
 				dispatcher.forward(request, response);
 			}else {
 				if (pick.getPick() == null){
-					request.getSession().setAttribute("token",
-							request.getParameter("token"));
+					request.getSession().setAttribute("pick",
+							pick);
+					request.getSession().setAttribute("draft",
+							draft);
 					request.setAttribute("pick", pick);
 					request.setAttribute(
 							"idList",
-							DraftManager.getInstance().filterTaken(pick.getDraftCode(),
+							DraftManager.getInstance().filterTaken(draft,
 									idList.getAllSideIdentities(pick.getSide())));
 				}else{
 					request.setAttribute("message", "Sorry, you've already made your pick");
-					request.setAttribute("draft", DraftManager.getInstance().getDraft(pick.getDraftCode()));
+					request.setAttribute("draft", DraftManager.getInstance().getDraft(request.getParameter("code")));
 					RequestDispatcher dispatcher = getServletContext()
 							.getRequestDispatcher("/showdraft.jsp");
 					dispatcher.forward(request, response);
 				}
 			}
 		} else {
-			request.setAttribute("idList", idList.getAllSideIdentities("Corp"));
+			//Show nothing
 		}
 		RequestDispatcher dispatcher = getServletContext()
 				.getRequestDispatcher("/draft.jsp");

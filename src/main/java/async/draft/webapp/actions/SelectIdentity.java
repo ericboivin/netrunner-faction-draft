@@ -36,11 +36,10 @@ public class SelectIdentity extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String code = request.getParameter("code");
 		if (request.getParameter("confirm") != null && request.getParameter("confirm").equals("ok")) {
-			String token = (String) request.getSession().getAttribute("token");
-			DraftPick pick = DraftManager.getInstance().getPick(token);
-			Draft draft = DraftManager.getInstance().getDraft(pick.getDraftCode());
+			DraftPick pick = (DraftPick) request.getSession().getAttribute("pick");
+			Draft draft = (Draft) request.getSession().getAttribute("draft");
 			
-			if (DraftManager.getInstance().isTaken(draft.getCode(), code)){
+			if (DraftManager.getInstance().isTaken(draft, code)){
 				request.setAttribute("message", "This identity has already been claimed");
 				request.setAttribute("draft", draft);
 				RequestDispatcher dispatcher = getServletContext()
@@ -53,10 +52,8 @@ public class SelectIdentity extends HttpServlet {
 				
 				pick.setPick(idList.get(request.getParameter("code")).getCode());
 				
-				DraftManager.getInstance().savePick(pick);
+				DraftManager.getInstance().savePick(pick, draft);
 	
-				DraftManager.getInstance().callNextPlayer(
-						draft);
 				request.setAttribute("message", "Pick registered");
 				request.setAttribute("draft", draft);
 				RequestDispatcher dispatcher = getServletContext()

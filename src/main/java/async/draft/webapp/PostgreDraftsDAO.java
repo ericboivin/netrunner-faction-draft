@@ -5,8 +5,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.sql.DataSource;
 
@@ -16,10 +14,8 @@ import org.codehaus.jackson.map.JsonMappingException;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.map.ObjectWriter;
 import org.postgresql.util.PGobject;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Component;
- 
-@Component
+
 public class PostgreDraftsDAO implements IDraftDAO
 {
 	private DataSource dataSource;
@@ -27,7 +23,7 @@ public class PostgreDraftsDAO implements IDraftDAO
 	public void setDataSource(DataSource dataSource) {
 		this.dataSource = dataSource;
 	}
- 
+ /*
 	public void create(Draft draft){
  
 		String sql = "INSERT INTO drafts " +
@@ -217,7 +213,7 @@ public class PostgreDraftsDAO implements IDraftDAO
 			}
 		}
 	}
-	
+	*/
 	public void saveDraft(Draft draft){
 		String sql = "INSERT INTO draftjson " +
 				"(code,json) VALUES (?,CAST(? AS json))";

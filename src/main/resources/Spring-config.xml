@@ -23,17 +23,4 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 
-	<context:annotation-config />
-	<context:component-scan base-package="async.draft.webapp" />
-
-	<!-- Enables the caching through annotations -->
-	<cache:annotation-driven />
-	<bean id="cacheManager" class="org.springframework.cache.support.SimpleCacheManager">
-    <property name="caches">
-      <set>
-        <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="draft" />
-        <bean class="org.springframework.cache.concurrent.ConcurrentMapCacheFactoryBean" p:name="pick" />
-      </set>
-    </property>
-  </bean>
 </beans>
