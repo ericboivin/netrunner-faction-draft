@@ -46,10 +46,10 @@ public class DraftServlet extends HttpServlet {
 				dispatcher.forward(request, response);
 			}else {
 				if (pick.getPick() == null){
-					request.getSession().setAttribute("pick",
-							pick);
-					request.getSession().setAttribute("draft",
-							draft);
+					request.setAttribute("token",
+							pick.getToken());
+					request.setAttribute("draft",
+							draft.getCode());
 					request.setAttribute("pick", pick);
 					request.setAttribute(
 							"idList",

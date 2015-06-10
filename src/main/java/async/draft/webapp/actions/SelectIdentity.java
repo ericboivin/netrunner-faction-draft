@@ -36,9 +36,10 @@ public class SelectIdentity extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String code = request.getParameter("code");
 		if (request.getParameter("confirm") != null && request.getParameter("confirm").equals("ok")) {
-			DraftPick pick = (DraftPick) request.getSession().getAttribute("pick");
-			Draft draft = (Draft) request.getSession().getAttribute("draft");
 			
+			Draft draft = DraftManager.getInstance().getDraft(request.getParameter("draft"));
+			
+			DraftPick pick = DraftManager.getInstance().getPick(draft, request.getParameter("token"));
 			if (DraftManager.getInstance().isTaken(draft, code)){
 				request.setAttribute("message", "This identity has already been claimed");
 				request.setAttribute("draft", draft);
