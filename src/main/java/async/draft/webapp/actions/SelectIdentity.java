@@ -1,6 +1,7 @@
 package async.draft.webapp.actions;
 
 import java.io.IOException;
+import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -36,10 +37,9 @@ public class SelectIdentity extends HttpServlet {
 			HttpServletResponse response) throws ServletException, IOException {
 		String code = request.getParameter("code");
 		if (request.getParameter("confirm") != null && request.getParameter("confirm").equals("ok")) {
+			DraftPick pick = (DraftPick) request.getSession().getAttribute("pick");
+			Draft draft = (Draft) request.getSession().getAttribute("draft");
 			
-			Draft draft = DraftManager.getInstance().getDraft(request.getParameter("draft"));
-			
-			DraftPick pick = DraftManager.getInstance().getPick(draft, request.getParameter("token"));
 			if (DraftManager.getInstance().isTaken(draft, code)){
 				request.setAttribute("message", "This identity has already been claimed");
 				request.setAttribute("draft", draft);
@@ -64,6 +64,8 @@ public class SelectIdentity extends HttpServlet {
 		} else {
 
 			request.setAttribute("identity", idList.get(code));
+			String url = "selectIdentity?confirm=ok&code="+code;
+			request.setAttribute("urlEncode", URLEncoder.encode(url,"UTF-8"));
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/confirm.jsp");
 			dispatcher.forward(request, response);

@@ -45,7 +45,7 @@
 				<h3>You have chosen ${identity.name}</h3>
 				<div class="bs-glyphicons">
 						<a
-							href="selectIdentity?confirm=ok&code=<c:out value = "${identity.code}"/>"
+							href="${urlEncode}"
 							class="btn btn-info" role="button"><span
 							class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span
 							class="glyphicon-class">Confirm</span></a>
