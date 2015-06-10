@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="UTF-8"%>
+	pageEncoding="ISO-8859-1"%>
 <%@ page import="java.util.List"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -45,7 +45,7 @@
 				<h3>You have chosen ${identity.name}</h3>
 				<div class="bs-glyphicons">
 						<a
-							href="${urlEncode}"
+							href="selectIdentity?confirm=ok&code=<c:out value = "${identity.code}"/>"
 							class="btn btn-info" role="button"><span
 							class="glyphicon glyphicon-ok" aria-hidden="true"></span> <span
 							class="glyphicon-class">Confirm</span></a>

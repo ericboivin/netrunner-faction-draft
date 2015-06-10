@@ -1,7 +1,6 @@
 package async.draft.webapp.actions;
 
 import java.io.IOException;
-import java.net.URLEncoder;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -64,8 +63,6 @@ public class SelectIdentity extends HttpServlet {
 		} else {
 
 			request.setAttribute("identity", idList.get(code));
-			String url = "selectIdentity?confirm=ok&code="+code;
-			request.setAttribute("urlEncode", URLEncoder.encode(url,"UTF-8"));
 			RequestDispatcher dispatcher = getServletContext()
 					.getRequestDispatcher("/confirm.jsp");
 			dispatcher.forward(request, response);
