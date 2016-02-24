@@ -36,11 +36,11 @@
 	</div>
 
 	<div class="container">
-		<h1>Welcome to the Android Netrunner Identity Draft application!</h1>
+		<h1>Welcome to the Android Netrunner Identity Draft application! Test!</h1>
 	</div>
 	<footer class="footer">
 		<div class="container">
-			<p class="text-muted"><a href="createdraft">Host a new draft</a></p>
+			<p class="text-muted"><a href="createdraft.jsp">Host a new draft</a></p>
 		</div>
 	</footer>
 </body>
