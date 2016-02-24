@@ -36,7 +36,7 @@
 	</div>
 
 	<div class="container">
-		<h1>Welcome to the Android Netrunner Identity Draft application! Test!</h1>
+		<h1>Welcome to the Android Netrunner Identity Draft application!</h1>
 	</div>
 	<footer class="footer">
 		<div class="container">
