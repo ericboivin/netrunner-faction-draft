@@ -41,7 +41,7 @@
 		<c:forEach items="${idList}" var="identity">
 			<li>
 				<a href="selectIdentity?code=<c:out value = "${identity.code}"/>" <c:if test="${identity.takenBy != null}">class="not-active"</c:if>>
-					<img class="<c:if test="${identity.takenBy != null}">fade</c:if>" src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/<c:out value = "${identity.code}"/>.png" alt="<c:out value="${identity.name}" />"/>
+					<img class="<c:if test="${identity.takenBy != null}">fade</c:if>" src="https://netrunnerdb.com/card_image/<c:out value = "${identity.code}"/>.png" alt="<c:out value="${identity.name}" />"/>
 				</a>
 				<c:if test="${identity.takenBy != null}">
 					<span class="text-content">
