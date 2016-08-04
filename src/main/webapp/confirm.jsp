@@ -38,7 +38,7 @@
 		<div class="row">
 			<div class="col-md-4">
 				<img
-					src="http://netrunnerdb.com/web/bundles/netrunnerdbcards/images/cards/en/${identity.code}.png"
+					src="https://netrunnerdb.com/card_image/${identity.code}.png"
 					alt="${identity.name}" />
 			</div>
 			<div class="col-md-8">
